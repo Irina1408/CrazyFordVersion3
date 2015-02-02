@@ -11,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Resources;
@@ -42,6 +43,8 @@ namespace CrazyFord
             //AdditionalColumn[] _colAdditional
             private const int _iColKing = 0;
             private const int _iColJoker = 1;
+
+            private const int _sizeIncreasing = 50;
 
         #endregion
 
@@ -83,6 +86,7 @@ namespace CrazyFord
 
             private MenuWindow menuWindow = new MenuWindow();
             private Button btnMenu = new Button();
+            System.Windows.Media.Effects.Effect effect = new DropShadowEffect();
 
         #endregion
 
@@ -403,7 +407,7 @@ namespace CrazyFord
             }
         }
 
-        private void ChekOnWin()
+        private void CheckOnWin()
         {
             bool isWin = true;
 
@@ -595,7 +599,7 @@ namespace CrazyFord
 
         #region Card moving
 
-            private Card _cardMove;
+            //private Card _cardMove;
             private List <Card> _cardsMove = new List<Card>();
 
             /// <summary>
@@ -610,7 +614,7 @@ namespace CrazyFord
 
                 if (card.Place == CardPlace.GameColumn)
                 {
-                    cardName = _colGame[(int)GetGameColIndex(card)].GetCardNameInColumn(card);
+                    cardName = _colGame[(int)GetGameColIndex(card)].GetCardMovingNameInColumn(card);
                     cardColor = _colGame[(int) GetGameColIndex(card)].GetCardColorInColumn(card);
                 }
                 else
@@ -631,7 +635,7 @@ namespace CrazyFord
 
                     if (lastCard != null)
                     {
-                        Data.Name lastCardName = _colGame[index].GetCardNameInColumn(lastCard);
+                        Data.Name lastCardName = _colGame[index].GetCardReceivingNameInColumn(lastCard);
                         Data.Color lastCardColor = _colGame[index].GetCardColorInColumn(lastCard);
 
                         if (lastCardName != Data.Name.Joker)
@@ -718,12 +722,18 @@ namespace CrazyFord
 
             private void card_MouseDown(object sender, MouseButtonEventArgs e)
             {
-                _cardMove = (Card)sender;
+                Card card = (Card) sender;
 
-                if (_cardMove.CanMove)
+                if (card.CanMove)
                 {
-                    CheckOnAllowDrop(_cardMove);
-                    DragDrop.DoDragDrop(_cardMove, _cardMove, DragDropEffects.Move);
+                    CheckOnAllowDrop(card);
+                    SetMovingCards(card);
+                    DragDrop.DoDragDrop(card, card, DragDropEffects.Move);
+
+                    foreach (Card movingCard in _cardsMove)
+                    {
+                        movingCard.Effect = null;
+                    }
                 }
             }
 
@@ -734,17 +744,15 @@ namespace CrazyFord
                 int iRow = Grid.GetRow(tempImage);
 
                 //set card row and column
-                Grid.SetColumn(_cardMove, iCol);
-                Grid.SetRow(_cardMove, iRow);
-                //bring to front
-                Grid.SetZIndex(_cardMove, 1);
+                Grid.SetColumn(_cardsMove[0], iCol);
+                Grid.SetRow(_cardsMove[0], iRow);
 
-                AddIntoNewPlace(_cardMove, iCol, iRow);
+                AddIntoNewPlace(iCol, iRow);
             }
 
-            private void DeleteCardPromLastPlace(Card card)
+            private void DeleteCardsPromLastPlace()
             {
-                _cardsMove.Clear();
+                Card card = _cardsMove[0];
 
                 switch (card.Place)
                 {
@@ -761,20 +769,10 @@ namespace CrazyFord
                         int? iColGame = GetGameColIndex(card);
                         if (iColGame != null)
                         {
-                            //delete all cards after this
-                            bool isFound = false;
-                            while (!isFound)
+                            for (int index = _cardsMove.Count - 1; index >= 0; index--)
                             {
-                                Card lastCard = _colGame[(int) iColGame].GetLastCard();
-                                if (lastCard.Equals(card))
-                                {
-                                    isFound = true;
-                                }
-
-                                _cardsMove.Add(lastCard);
-                                _colGame[(int)iColGame].DeleteCard(lastCard);
+                                _colGame[(int)iColGame].DeleteCard(_cardsMove[index]);
                             }
-
                         }
                         else
                         {
@@ -791,14 +789,12 @@ namespace CrazyFord
                         {
                             _colAdditional[_iColJoker].DeleteCard(card);
                         }
-                        _cardsMove.Add(card);
                         break;
 
                     case CardPlace.Deck:
                         if (_colDeck.Contains(card))
                         {
                             _colDeck.DeleteCard(card);
-                            _cardsMove.Add(card);
                         }
                         else
                         {
@@ -808,9 +804,10 @@ namespace CrazyFord
                 }
             }
             
-            private void AddIntoNewPlace(Card card, int iCol, int iRow)
+            private void AddIntoNewPlace(int iCol, int iRow)
             {
                 int iCurrCol;
+                Card card = _cardsMove[0];
                 
                 switch (iRow)
                 {
@@ -818,16 +815,16 @@ namespace CrazyFord
                     case _iRowResColsGrid:
                         iCurrCol = GetResColIndex(iCol);
                         //delete card from last place
-                        DeleteCardPromLastPlace(card);
+                        DeleteCardsPromLastPlace();
                         _colResult[iCurrCol].AddCard(card);
                         card.Margin = new Thickness(0, 0, 0, 0);
-                        ChekOnWin();
+                        CheckOnWin();
                         break;
 
                     case _iRowGameColsGrid:
                         iCurrCol = GetGameColIndex(iCol);
                         //delete card from last place
-                        DeleteCardPromLastPlace(card);
+                        DeleteCardsPromLastPlace();
                         for (int index = _cardsMove.Count - 1; index >= 0; index--)
                         {
                             _colGame[iCurrCol].AddCard(_cardsMove[index]);
@@ -840,7 +837,7 @@ namespace CrazyFord
 
                     case _iRowAdditionalColsGrid:
                         //delete card from last place
-                        DeleteCardPromLastPlace(card);
+                        DeleteCardsPromLastPlace();
 
                         if (iCol == _iGridColKing)
                         {
@@ -851,11 +848,53 @@ namespace CrazyFord
                             _colAdditional[_iColJoker].AddCard(card);
                         }
                         card.Margin = new Thickness(0, 0, 0, 0);
-                        ChekOnWin();
+                        CheckOnWin();
                         break;
 
                     default:
                         throw new Exception("Invalid column index.");
+                }
+            }
+
+            private void SetMovingCards(Card card)
+            {
+                _cardsMove.Clear();
+
+                switch (card.Place)
+                {
+                    case CardPlace.GameColumn:
+                        int? iColGame = GetGameColIndex(card);
+                        if (iColGame != null)
+                        {
+                            for (int index = _colGame[(int) iColGame].Count - 1; index >= 0; index --)
+                            {
+                                Card lastCard = _colGame[(int)iColGame][index];
+                                _cardsMove.Add(lastCard);
+
+                                if (lastCard.Equals(card))
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            throw new Exception("Index game column in null.");
+                        }
+                        break;
+
+                    default:
+                        _cardsMove.Add(card);
+                        break;
+                }
+
+                System.Windows.Controls.Border border = new Border();
+                border.Background = Brushes.AntiqueWhite;
+                border.BorderThickness = new Thickness(2,2,2,2);             
+
+                foreach (Card movingCard in _cardsMove)
+                {
+                    movingCard.Effect = effect;
                 }
             }
 

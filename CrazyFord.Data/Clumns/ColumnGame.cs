@@ -54,16 +54,43 @@ namespace CrazyFord.Data.Clumns
 
     #region Public methods
 
-        public Name GetCardNameInColumn(Card card)
+        public Name GetCardMovingNameInColumn(Card card, int numJoker = 0)
         {
+            //if is not joker
             if (card.Data.CardName != Name.Joker)
             {
-                return card.Data.CardName;
+                return card.Data.CardName + numJoker;
             }
 
-            Data.Name cardNameDown = GetCardNameDown(card);
+            //if this joker is not last
+            if (!Equals(GetLastCard(), card))
+            {
+                return GetCardMovingNameInColumn(Cards[Cards.IndexOf(card) + 1], numJoker + 1);
+            }
 
-            return cardNameDown != Name.Joker ? cardNameDown : GetCardNameUp(card) ;
+            return Name.Joker;
+        }
+
+        public Name GetCardReceivingNameInColumn(Card card, int numJoker = 0)
+        {
+            //if is not joker
+            if (card.Data.CardName != Name.Joker)
+            {
+                return card.Data.CardName - numJoker;
+            }
+
+            if (GetFirstCard().IsShowedFace && Equals(GetFirstCard(), card))
+            {
+                return Name.King - numJoker;
+            }
+
+            //if this joker is not first
+            if (!Equals(GetFirstShowedCard(), card))
+            {
+                return GetCardReceivingNameInColumn(Cards[Cards.IndexOf(card) - 1], numJoker + 1);
+            }
+
+            return Name.Joker;
         }
 
         public Color GetCardColorInColumn(Card card)
@@ -78,48 +105,9 @@ namespace CrazyFord.Data.Clumns
             return cardColorDown == Color.None ? GetCardColorUp(card) : cardColorDown;
         }
 
-        #endregion
+    #endregion
 
     #region Private methods
-
-        private Name GetCardNameDown(Card card, int numJoker = 0)
-        {
-            //if is not joker
-            if (card.Data.CardName != Name.Joker)
-            {
-                return card.Data.CardName + numJoker;
-            }
-
-            //if this joker is not last
-            if (!Equals(GetLastCard(), card))
-            {
-                return GetCardNameDown(Cards[Cards.IndexOf(card) + 1], numJoker + 1);
-            }
-
-            return Name.Joker;
-        }
-
-        private Name GetCardNameUp(Card card, int numJoker = 0)
-        {
-            //if is not joker
-            if (card.Data.CardName != Name.Joker)
-            {
-                return card.Data.CardName - numJoker;
-            }
-
-            /*if (Equals(GetFirstCard(), card))
-            {
-                return Name.King;
-            }*/
-
-            //if this joker is not first
-            if (!Equals(GetFirstShowedCard(), card))
-            {
-                return GetCardNameUp(Cards[Cards.IndexOf(card) - 1], numJoker + 1);
-            }
-
-            return Name.Joker;
-        }
 
         private Color GetCardColorDown(Card card, int numJoker = 0)
         {
@@ -161,6 +149,6 @@ namespace CrazyFord.Data.Clumns
             return this.Cards.FirstOrDefault(card => card.IsShowedFace);
         }
 
-        #endregion
+    #endregion
     }
 }
