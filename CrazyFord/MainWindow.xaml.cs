@@ -87,7 +87,8 @@ namespace CrazyFord
 
             private MenuWindow menuWindow = new MenuWindow();
             private Button btnMenu = new Button();
-            System.Windows.Media.Effects.Effect effect = new DropShadowEffect();
+            private Effect effect = new DropShadowEffect();
+            private Label lblCountCardDeck = new Label();
 
         #endregion
 
@@ -137,12 +138,23 @@ namespace CrazyFord
                             break;
 
                         case MenuAction.Exit:
-                            this.Close();
+                            Close();
                             break;
                     }
                 };
 
                 btnMenu.IsCancel = true;
+
+                //set label that shows number cards in deck
+                grid.Children.Add(lblCountCardDeck);
+                Grid.SetRow(lblCountCardDeck, 4);
+                Grid.SetColumn(lblCountCardDeck, 1);
+                lblCountCardDeck.FontSize = 12;
+                lblCountCardDeck.Content = AdditionalData.CountCards + " / 0";
+                lblCountCardDeck.Visibility = Visibility.Visible;
+                lblCountCardDeck.HorizontalContentAlignment = HorizontalAlignment.Center;
+                //lblCountCardDeck.Background = Helper.GetButtonBackBrush();
+                //lblCountCardDeck.Foreground = Helper.GetForeBrush();
 
                 //events
                 for (int index = 0; index < _cards.Length; index++)
@@ -383,6 +395,7 @@ namespace CrazyFord
                 }
             }
 
+            lblCountCardDeck.Content = AdditionalData.CountCards - _curCardIndex + " / 0";
             _isGame = true;
         }
 
@@ -525,6 +538,7 @@ namespace CrazyFord
             }
 
             AlignDeckSequence(_colDeck);
+            lblCountCardDeck.FontSize = _cardGameBackDistance * 1.5;
         }
 
         #region "Get index" methods
@@ -614,6 +628,7 @@ namespace CrazyFord
                     //set card row and column
                     Grid.SetColumn(_cards[iCard], _iGridColDeck + 2);
                     Grid.SetRow(_cards[iCard], _iRowAdditionalColsGrid);
+                    lblCountCardDeck.Content = AdditionalData.CountCards - _curCardIndex + " / " + _colDeck.Count;
 
                     if (_curCardIndex >= _cardSequence.Length)
                     {
