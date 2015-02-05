@@ -105,6 +105,30 @@ namespace CrazyFord.Data.Clumns
             return cardColorDown == Color.None ? GetCardColorUp(card) : cardColorDown;
         }
 
+        public int GetCountBackCards()
+        {
+            int count = 0;
+
+            foreach (Card card in Cards)
+            {
+                if (!card.IsShowedFace)
+                {
+                    count++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return count;
+        }
+
+        public int GetCardDistance(Card card, int cardDistanceFace, int cardDistanceBack)
+        {
+            return 0;
+        }
+
     #endregion
 
     #region Private methods

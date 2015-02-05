@@ -72,7 +72,8 @@ namespace CrazyFord
             private double _cardWidth;
             private double _cardHeight;
 
-            private double _cardGameDistance;
+            private double _cardGameFaceDistance;
+            private double _cardGameBackDistance;
             private double _cardDeckDistance;
 
             private int[] _cardSequence = new int[AdditionalData.CountCards];
@@ -362,7 +363,7 @@ namespace CrazyFord
                     Grid.SetRow(_cards[iCard], _iRowGameColsGrid);
                     Grid.SetColumn(_cards[iCard], GetGameGridColIndex(iCol));
 
-                    _cards[iCard].Margin = new Thickness(0, _colGame[iCol].GetCardIndex(_cards[iCard]) * _cardGameDistance, 0, 0);
+                    _cards[iCard].Margin = new Thickness(0, _colGame[iCol].GetCardIndex(_cards[iCard]) * _cardGameBackDistance, 0, 0);
 
                     //replace card
                     if (index == iCol)
@@ -486,15 +487,37 @@ namespace CrazyFord
             }
 
             //change distance
-            _cardGameDistance = _cardHeight / 5;
+            _cardGameFaceDistance = _cardHeight / 5;
             _cardDeckDistance = _cardWidth / 4;
+            _cardGameBackDistance = _cardGameFaceDistance / 2;
+
+            bool lastShowedFace = false;
+            double cardDistance = 0;
 
             for (int iCol = 0; iCol < _colGame.Length; iCol++)
             {
                 for (int iCard = 0; iCard < _colGame[iCol].Count; iCard++)
                 {
-                    _colGame[iCol][iCard].Margin = new Thickness(0, iCard * _cardGameDistance, 0, 0);
+                    //if the previos card was not visible
+                    if (iCard != 0)
+                    {
+                        if (!lastShowedFace)
+                        {
+                            cardDistance += _cardGameBackDistance;
+                        }
+                        else
+                        {
+                            cardDistance += _cardGameFaceDistance;
+                        }
+                    }
+
+                    lastShowedFace = _colGame[iCol][iCard].IsShowedFace;
+
+                    _colGame[iCol][iCard].Margin = new Thickness(0, cardDistance, 0, 0);
                 }
+
+                cardDistance = 0;
+                lastShowedFace = false;
             }
 
             AlignDeckSequence(_colDeck);
@@ -828,7 +851,14 @@ namespace CrazyFord
                         for (int index = _cardsMove.Count - 1; index >= 0; index--)
                         {
                             _colGame[iCurrCol].AddCard(_cardsMove[index]);
-                            _cardsMove[index].Margin = new Thickness(0, _colGame[iCurrCol].GetCardIndex(_cardsMove[index]) * _cardGameDistance, 0, 0);
+
+                            int countBackCards = _colGame[iCurrCol].GetCountBackCards();
+
+                            Double cardDistance = countBackCards * _cardGameBackDistance +
+                                                  (_colGame[iCurrCol].GetCardIndex(_cardsMove[index]) -
+                                                   countBackCards) * _cardGameFaceDistance;
+
+                            _cardsMove[index].Margin = new Thickness(0, cardDistance, 0, 0);
                             //set card row and column
                             Grid.SetColumn(_cardsMove[index], iCol);
                             Grid.SetRow(_cardsMove[index], iRow);
