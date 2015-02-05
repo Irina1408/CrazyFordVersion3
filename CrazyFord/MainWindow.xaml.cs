@@ -119,8 +119,12 @@ namespace CrazyFord
                 Grid.SetColumn(btnMenu, 1);
                 //menuButton.Height = 50;
                 //menuButton.Width = 150;
-                btnMenu.Content = "Меню";
-                btnMenu.Margin = new Thickness(0, 0, -50, 50);
+                Image tempImage = new Image();
+                tempImage.Source = Helper.GetImageSourceFromResource("Resources/menu1.png");
+                tempImage.Stretch = Stretch.Uniform;
+                //btnMenu.Background = new ImageBrush(Helper.GetImageSourceFromResource("Resources/menu1.png"));
+                btnMenu.Content = tempImage;
+                btnMenu.Margin = new Thickness(0, 0, -40, 40);
                 btnMenu.Background = Helper.GetButtonBackBrush();
                 btnMenu.Click += (object sender, RoutedEventArgs e) =>
                 {
