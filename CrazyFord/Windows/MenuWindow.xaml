@@ -1,0 +1,29 @@
+﻿<Window x:Class="CrazyFord.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Меню" Height="344.8" Width="402.4" ShowInTaskbar="False" ResizeMode="NoResize" 
+        Topmost="True" WindowStartupLocation="CenterOwner" WindowStyle="None"  Style="{DynamicResource GenericWindowStyle}"
+        Activated="Window_Activated" 
+        KeyDown="Window_KeyDown" 
+        KeyUp="Window_KeyUp">
+    <StackPanel>
+        <Label Content="Меню" Style="{DynamicResource HeaderLabelStyle}"
+                MouseMove="Label_MouseMove"/>
+        
+        <Button x:Name="btnNewGame" Content="Новая игра" Style="{DynamicResource GenericButtonStyle}" 
+                Click="btnNewGame_Click"/>
+        
+        <Button x:Name="btnResumeGame" Content="Продолжить игру" Style="{DynamicResource GenericButtonStyle}"
+                IsDefault="True" IsEnabled="False" IsCancel="True"
+                Click="btnResumeGame_Click"/>
+        
+        <Button x:Name="btnRules" Content="Правила" Style="{DynamicResource GenericButtonStyle}"
+                Click="btnRules_Click"/>
+        
+        <Button x:Name="btnAbout" Content="Об игре" Style="{DynamicResource GenericButtonStyle}" 
+                Click="btnAbout_Click"/>
+        
+        <Button x:Name="btnExit" Content="Выйти из игры" Style="{DynamicResource GenericButtonStyle}"
+                Click="btnExit_Click"/>
+    </StackPanel>
+</Window>

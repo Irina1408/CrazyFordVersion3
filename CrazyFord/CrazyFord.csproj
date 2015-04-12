@@ -54,26 +54,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="GameProcess\GameData.cs" />
+    <Compile Include="GameProcess\GameImages.cs" />
+    <Compile Include="GameProcess\GameWindowConstants.cs" />
+    <Compile Include="GameProcess\GameWindowData.cs" />
+    <Compile Include="History\Action.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="History\History.cs" />
+    <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MenuWindow.xaml">
+    <Page Include="Windows\MenuWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuWindow.xaml.cs">
+    <Compile Include="Windows\MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -147,6 +153,10 @@
     <Resource Include="Resources\CardBack\2.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CrazyFord.CommonControls\CrazyFord.CommonControls.csproj">
+      <Project>{59791492-c7f5-4408-8e27-feeae444ec53}</Project>
+      <Name>CrazyFord.CommonControls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CrazyFord.Data\CrazyFord.Data.csproj">
       <Project>{de23180f-cb39-4fc6-94a5-1926a297cdd1}</Project>
       <Name>CrazyFord.Data</Name>
