@@ -96,7 +96,6 @@ namespace CrazyFord
         {
             int numCardName = (int) dataCard.CardName + 1;
             string lear = dataCard.CardLear.ToString();
-            string imageSource = "Resources/CardFace/" + lear + "/" + numCardName + ".png";
             return GetImageSourceFromResource("Resources/CardFace/" + dataCard.CardLear + "/" + numCardName + ".png", assemblyName);
         }
 
@@ -121,24 +120,5 @@ namespace CrazyFord
             }
         }
 
-        public static void SetButtonBackColor(System.Windows.Media.Color color)
-        {
-            color.A = 255;
-            color.R = 75;
-            color.B = 123;
-            color.G = 255;
-        }
-
-        public static Brush GetButtonBackBrush()
-        {
-            System.Windows.Media.Color color = new System.Windows.Media.Color();
-            color.A = 255;
-            color.R = 75;
-            color.G = 123;
-            color.B = 255;
-
-            Brush brush = new RadialGradientBrush(color, color);
-            return brush;
-        }
     }
 }

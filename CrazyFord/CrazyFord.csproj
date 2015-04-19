@@ -58,8 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="GameProcess\GameColumns.cs" />
     <Compile Include="GameProcess\GameData.cs" />
     <Compile Include="GameProcess\GameImages.cs" />
+    <Compile Include="GameProcess\GameProcess.cs" />
     <Compile Include="GameProcess\GameWindowConstants.cs" />
     <Compile Include="GameProcess\GameWindowData.cs" />
     <Compile Include="History\Action.cs" />

@@ -30,25 +30,6 @@ namespace CrazyFord
     {
     #region Private fields
 
-        #region Images
-
-            //private Card[] Cards = new Card[AdditionalData.CountCards];
-            //private Image[] ResultColImages = new Image[AdditionalData.CountResultColumns];
-            //private Image[] GameColImages = new Image[AdditionalData.CountGameColumns];
-            //private Image[] AdditionalColImages = new Image[2];
-            //private Image DeckColImage = new Image();
-
-        #endregion
-
-        #region Columns
-
-            private ColumnResult[] _colResult = new ColumnResult[AdditionalData.CountResultColumns];
-            private ColumnGame[] _colGame = new ColumnGame[AdditionalData.CountGameColumns];
-            private AdditionalColumn[] _colAdditional = new AdditionalColumn[2];
-            private ColumnDeck _colDeck = new ColumnDeck();
-
-        #endregion
-
         #region Other fields
 
             private double _cardWidth;
@@ -78,6 +59,7 @@ namespace CrazyFord
 
         private GameImages _gameImages;
         private GameWindowData _gameWindowData;
+        private GameColumns _gameColumns;
 
     #endregion
 
@@ -94,14 +76,8 @@ namespace CrazyFord
                 _gameWindowData = new GameWindowData();
                 //set grid columns
                 SetGridDefinitions();
-                ////initialize images
-                //InitialzeResultColumnImages();
-                //InitializeGameColumnImages();
-                //InitializeAdditionalColumnImages();
-                //InitializeCards();
                 _gameImages = new GameImages(grid, _gameWindowData);
-                //initialize columns
-                InitializeColumns();
+                _gameColumns = new GameColumns(AlignDeckSequence);
 
                 //set menu button settings
                 grid.Children.Add(btnMenu);
@@ -208,123 +184,6 @@ namespace CrazyFord
             _gameWindowData.iGridColJoker = grid.ColumnDefinitions.Count - 2;
         }
 
-        //private void InitialzeResultColumnImages()
-        //{
-        //    for (int index = 0; index < ResultColImages.Length; index++)
-        //    {
-        //        ResultColImages[index] = new Image();
-        //        ResultColImages[index].Source = Helper.GetImageSourceFromResource("Resources/Ace.png");
-
-        //        Helper.TuneCardImage(ResultColImages[index]);
-        //        grid.Children.Add(ResultColImages[index]);
-        //        Grid.SetRow(ResultColImages[index], GameWindowConstants.iRowResColsGrid);
-        //        Grid.SetColumn(ResultColImages[index], GetResGridColIndex(index));
-        //    }
-        //}
-
-        //private void InitializeGameColumnImages()
-        //{
-        //    for (int index = 0; index < GameColImages.Length; index++)
-        //    {
-        //        GameColImages[index] = new Image();
-        //        GameColImages[index].Source = Helper.GetImageSourceFromResource("Resources/King.png");
-
-        //        Helper.TuneCardImage(GameColImages[index]);
-        //        grid.Children.Add(GameColImages[index]);
-        //        Grid.SetRow(GameColImages[index], GameWindowConstants.iRowGameColsGrid);
-        //        Grid.SetColumn(GameColImages[index], GetGameGridColIndex(index));
-        //    }
-        //}
-
-        //private void InitializeAdditionalColumnImages()
-        //{
-        //    for (int index = 0; index < AdditionalColImages.Length; index++)
-        //    {
-        //        AdditionalColImages[index] = new Image();
-
-        //        Helper.TuneCardImage(AdditionalColImages[index]);
-        //        grid.Children.Add(AdditionalColImages[index]);
-        //        Grid.SetRow(AdditionalColImages[index], GameWindowConstants.iRowAdditionalColsGrid);
-        //    }
-
-        //    //deck
-        //    Helper.TuneCardImage(DeckColImage);
-        //    grid.Children.Add(DeckColImage);
-        //    Grid.SetRow(DeckColImage, GameWindowConstants.iRowAdditionalColsGrid);
-
-        //    //static data
-        //    DeckColImage.Source = Helper.GetImageSourceFromResource("Resources/CardBack/2.png");
-        //    AdditionalColImages[GameWindowConstants.iImageKing].Source = Helper.GetImageSourceFromResource("Resources/King.png");
-        //    AdditionalColImages[GameWindowConstants.iImageJoker].Source = Helper.GetImageSourceFromResource("Resources/Empty.png");
-
-        //    Grid.SetColumn(DeckColImage, _iGridColDeck);
-        //    Grid.SetColumn(AdditionalColImages[GameWindowConstants.iImageKing], _iGridColKing);
-        //    Grid.SetColumn(AdditionalColImages[GameWindowConstants.iImageJoker], _iGridColJoker);
-        //}
-
-        //private void InitializeCards()
-        //{
-        //    int index = 0;
-        //    //loop for every deck
-        //    for (int iDeck = 1; iDeck <= AdditionalData.CountDecks; iDeck++)
-        //    {
-        //        //loop for set lear, name and place in file settings of the cards
-        //        for (int iLear = 0; iLear < AdditionalData.CountLears; iLear++)
-        //        {
-        //            for (int iName = 0; iName < AdditionalData.CountCardNames; iName++)
-        //            {
-        //                Cards[index] = new Card(new DataCard((Lear)iLear, (Name)iName));
-        //                Cards[index].ImageSourceCardFace = Helper.GetImageSourceCardFaceByCardData(Cards[index].Data);
-
-        //                Helper.TuneCardImage(Cards[index]);
-        //                grid.Children.Add(Cards[index]);
-        //                Cards[index].Visibility = Visibility.Hidden;
-
-        //                index++;
-        //            }
-        //        }
-
-        //        //loop for set card settings if this card is joker
-        //        for (int iJoker = index; iJoker < index + AdditionalData.CountJokers; iJoker++)
-        //        {
-        //            Cards[iJoker] = new Card(new DataCard(Lear.None, CrazyFord.Data.Name.Joker));
-        //            Cards[iJoker].ImageSourceCardFace = Helper.GetImageSourceFromResource("Resources/CardFace/Joker.png");
-
-        //            Helper.TuneCardImage(Cards[iJoker]);
-        //            grid.Children.Add(Cards[iJoker]);
-        //            Cards[index].Visibility = Visibility.Hidden;
-        //        }
-
-        //        index += AdditionalData.CountJokers;
-        //    }
-
-        //    Card.ImageSourceCardBack = Helper.GetImageSourceFromResource("Resources/CardBack/2.png");
-        //}
-
-        private void InitializeColumns()
-        {
-            for (int index = 0; index < _colResult.Length; index++)
-            {
-                _colResult[index] = new ColumnResult();
-                _colResult[index].AfterAddCardEvent += AlignOnZindex;
-            }
-
-            for (int index = 0; index < _colGame.Length; index++)
-            {
-                _colGame[index] = new ColumnGame(index);
-                _colGame[index].AfterAddCardEvent += AlignOnZindex;
-            }
-
-            _colAdditional[GameWindowConstants.iColKing] = new AdditionalColumn(CrazyFord.Data.Name.King);
-            _colAdditional[GameWindowConstants.iColKing].AfterAddCardEvent += AlignOnZindex;
-            _colAdditional[GameWindowConstants.iColJoker] = new AdditionalColumn(CrazyFord.Data.Name.Joker);
-            _colAdditional[GameWindowConstants.iColJoker].AfterAddCardEvent += AlignOnZindex;
-
-            _colDeck.AfterAddCardEvent += AlignOnZindex;
-            _colDeck.AfterAddCardEvent += AlignDeckSequence;
-            _colDeck.AfterDeleteCardEvent += AlignDeckSequence;
-        }
-
     #endregion
 
     #region Private methods
@@ -346,22 +205,22 @@ namespace CrazyFord
             _gameImages.DeckColImage.Visibility = Visibility.Visible;
 
             //clear column data
-            for (int index = 0; index < _colResult.Length; index++)
+            for (int index = 0; index < _gameColumns.ColResult.Length; index++)
             {
-                _colResult[index].Clear();
+                _gameColumns.ColResult[index].Clear();
             }
 
-            for (int index = 0; index < _colGame.Length; index++)
+            for (int index = 0; index < _gameColumns.ColGame.Length; index++)
             {
-                _colGame[index].Clear();
+                _gameColumns.ColGame[index].Clear();
             }
 
-            for (int index = 0; index < _colAdditional.Length; index++)
+            for (int index = 0; index < _gameColumns.ColAdditional.Length; index++)
             {
-                _colAdditional[index].Clear();
+                _gameColumns.ColAdditional[index].Clear();
             }
 
-            _colDeck.Clear();
+            _gameColumns.ColDeck.Clear();
 
             //add cards in game columns
             for (int iCol = 0; iCol < AdditionalData.CountGameColumns; iCol++)
@@ -369,14 +228,14 @@ namespace CrazyFord
                 for (int index = 0; index < iCol + 1; index++)
                 {
                     int iCard = _cardSequence[_curCardIndex];
-                    _colGame[iCol].AddCard(_gameImages.Cards[iCard]);
+                    _gameColumns.ColGame[iCol].AddCard(_gameImages.Cards[iCard]);
 
                     _gameImages.Cards[iCard].Visibility = Visibility.Visible;
 
                     Grid.SetRow(_gameImages.Cards[iCard], GameWindowConstants.iRowGameColsGrid);
                     Grid.SetColumn(_gameImages.Cards[iCard], GetGameGridColIndex(iCol));
 
-                    _gameImages.Cards[iCard].Margin = new Thickness(0, _colGame[iCol].GetCardIndex(_gameImages.Cards[iCard]) * _cardGameBackDistance, 0, 0);
+                    _gameImages.Cards[iCard].Margin = new Thickness(0, _gameColumns.ColGame[iCol].GetCardIndex(_gameImages.Cards[iCard]) * _cardGameBackDistance, 0, 0);
 
                     //replace card
                     if (index == iCol)
@@ -401,14 +260,6 @@ namespace CrazyFord
             timer.Start();
         }
 
-        private void AlignOnZindex(ColumnBase column)
-        {
-            for (int index = 0; index < column.Count; index++)
-            {
-                Grid.SetZIndex(column[index], index);
-            }
-        }
-
         private void AlignDeckSequence(ColumnBase column)
         {
             int difference = column.Count - AdditionalData.CountVisibleCardsInDeck;
@@ -425,14 +276,14 @@ namespace CrazyFord
                     column[index].Margin = new Thickness((index - difference) * _cardDeckDistance, 0, -(index - difference) * _cardDeckDistance, 0);
                 }
             }
-            lblCountCardDeck.Content = AdditionalData.CountCards - _curCardIndex + " / " + _colDeck.Count;
+            lblCountCardDeck.Content = AdditionalData.CountCards - _curCardIndex + " / " + _gameColumns.ColDeck.Count;
         }
 
         private void CheckOnWin()
         {
             bool isWin = true;
 
-            foreach (ColumnResult columnResult in _colResult)
+            foreach (ColumnResult columnResult in _gameColumns.ColResult)
             {
                 if (!columnResult.IsFull)
                 {
@@ -441,7 +292,7 @@ namespace CrazyFord
                 }
             }
 
-            if (_colAdditional[GameWindowConstants.iColJoker].Count != AdditionalData.CountJokers)
+            if (_gameColumns.ColAdditional[GameWindowConstants.iColJoker].Count != AdditionalData.CountJokers)
             {
                 isWin = false;
             }
@@ -516,9 +367,9 @@ namespace CrazyFord
             bool lastShowedFace = false;
             double cardDistance = 0;
 
-            for (int iCol = 0; iCol < _colGame.Length; iCol++)
+            for (int iCol = 0; iCol < _gameColumns.ColGame.Length; iCol++)
             {
-                for (int iCard = 0; iCard < _colGame[iCol].Count; iCard++)
+                for (int iCard = 0; iCard < _gameColumns.ColGame[iCol].Count; iCard++)
                 {
                     //if the previos card was not visible
                     if (iCard != 0)
@@ -533,16 +384,16 @@ namespace CrazyFord
                         }
                     }
 
-                    lastShowedFace = _colGame[iCol][iCard].IsShowedFace;
+                    lastShowedFace = _gameColumns.ColGame[iCol][iCard].IsShowedFace;
 
-                    _colGame[iCol][iCard].Margin = new Thickness(0, cardDistance, 0, 0);
+                    _gameColumns.ColGame[iCol][iCard].Margin = new Thickness(0, cardDistance, 0, 0);
                 }
 
                 cardDistance = 0;
                 lastShowedFace = false;
             }
 
-            AlignDeckSequence(_colDeck);
+            AlignDeckSequence(_gameColumns.ColDeck);
             lblCountCardDeck.FontSize = _cardGameBackDistance * 1.5;
         }
 
@@ -557,8 +408,6 @@ namespace CrazyFord
             /// <summary>
             /// Get game column index in grid
             /// </summary>
-            /// <param name="iCol">Column index</param>
-            /// <returns>Index</returns>
             private int GetGameGridColIndex(int iCol)
             {
                 return iCol * 2 + 1;
@@ -567,8 +416,6 @@ namespace CrazyFord
             /// <summary>
             /// Get result column index in grid
             /// </summary>
-            /// <param name="iCol">Column index</param>
-            /// <returns>Index</returns>
             private int GetResGridColIndex(int iCol)
             {
                 return (iCol + grid.ColumnDefinitions.Count / 2 - AdditionalData.CountResultColumns) * 2 + 1;
@@ -577,8 +424,6 @@ namespace CrazyFord
             /// <summary>
             /// Get game column index
             /// </summary>
-            /// <param name="iColGrid">Column index in grid</param>
-            /// <returns>Index</returns>
             private int GetGameColIndex(int iColGrid)
             {
                 return (iColGrid - 1) / 2;
@@ -587,8 +432,6 @@ namespace CrazyFord
             /// <summary>
             /// Get result column index
             /// </summary>
-            /// <param name="iColGrid">Column index in grid</param>
-            /// <returns>Index</returns>
             private int GetResColIndex(int iColGrid)
             {
                 return (iColGrid - 1) / 2 - grid.ColumnDefinitions.Count / 2 + AdditionalData.CountResultColumns;
@@ -597,13 +440,11 @@ namespace CrazyFord
             /// <summary>
             /// Returns game column index where card is plased
             /// </summary>
-            /// <param name="card">Card</param>
-            /// <returns>Column Index</returns>
             private int? GetGameColIndex(Card card)
             {
-                for (int index = 0; index < _colGame.Length; index++)
+                for (int index = 0; index < _gameColumns.ColGame.Length; index++)
                 {
-                    if (_colGame[index].Contains(card))
+                    if (_gameColumns.ColGame[index].Contains(card))
                     {
                         return index;
                     }
@@ -631,7 +472,7 @@ namespace CrazyFord
                     int iCard = _cardSequence[_curCardIndex];
 
                     //add in deck
-                    _colDeck.AddCard(_gameImages.Cards[iCard]);
+                    _gameColumns.ColDeck.AddCard(_gameImages.Cards[iCard]);
                     _curCardIndex++;
 
                     //set card is visible
@@ -639,7 +480,7 @@ namespace CrazyFord
                     //set card row and column
                     Grid.SetColumn(_gameImages.Cards[iCard], _gameWindowData.iGridColDeck + 2);
                     Grid.SetRow(_gameImages.Cards[iCard], GameWindowConstants.iRowAdditionalColsGrid);
-                    lblCountCardDeck.Content = AdditionalData.CountCards - _curCardIndex + " / " + _colDeck.Count;
+                    lblCountCardDeck.Content = AdditionalData.CountCards - _curCardIndex + " / " + _gameColumns.ColDeck.Count;
 
                     if (_curCardIndex >= _cardSequence.Length)
                     {
@@ -667,8 +508,8 @@ namespace CrazyFord
 
                 if (card.Place == CardPlace.GameColumn)
                 {
-                    cardName = _colGame[(int)GetGameColIndex(card)].GetCardMovingNameInColumn(card);
-                    cardColor = _colGame[(int) GetGameColIndex(card)].GetCardColorInColumn(card);
+                    cardName = _gameColumns.ColGame[(int)GetGameColIndex(card)].GetCardMovingNameInColumn(card);
+                    cardColor = _gameColumns.ColGame[(int)GetGameColIndex(card)].GetCardColorInColumn(card);
                 }
                 else
                 {
@@ -677,19 +518,19 @@ namespace CrazyFord
                 }
 
                 //game columns
-                for (int index = 0; index < _colGame.Length; index++)
+                for (int index = 0; index < _gameColumns.ColGame.Length; index++)
                 {
                     //set allowDrop = false for every card in column
-                    _colGame[index].SetAllowDrop();
+                    _gameColumns.ColGame[index].SetAllowDrop();
                     //set allowDrop = false for image in this column
                     _gameImages.GameColImages[index].AllowDrop = false;
                     //get last card
-                    lastCard = _colGame[index].GetLastCard();
+                    lastCard = _gameColumns.ColGame[index].GetLastCard();
 
                     if (lastCard != null)
                     {
-                        Data.Name lastCardName = _colGame[index].GetCardReceivingNameInColumn(lastCard);
-                        Data.Color lastCardColor = _colGame[index].GetCardColorInColumn(lastCard);
+                        Data.Name lastCardName = _gameColumns.ColGame[index].GetCardReceivingNameInColumn(lastCard);
+                        Data.Color lastCardColor = _gameColumns.ColGame[index].GetCardColorInColumn(lastCard);
 
                         if (lastCardName != Data.Name.Joker)
                         {
@@ -713,18 +554,18 @@ namespace CrazyFord
 
                 //if move 1 card
                 if (card.Place != CardPlace.GameColumn ||
-                    _colGame[(int)GetGameColIndex(card)].GetLastCard().Equals(card) )
+                    _gameColumns.ColGame[(int)GetGameColIndex(card)].GetLastCard().Equals(card))
                 {
 
                     //result columns
-                    for (int index = 0; index < _colResult.Length; index++)
+                    for (int index = 0; index < _gameColumns.ColResult.Length; index++)
                     {
                         //set allowDrop = false for every card in column
-                        _colResult[index].SetAllowDrop();
+                        _gameColumns.ColResult[index].SetAllowDrop();
                         //set allowDrop = false for image in this column
                         _gameImages.ResultColImages[index].AllowDrop = false;
                         //get last card
-                        lastCard = _colResult[index].GetLastCard();
+                        lastCard = _gameColumns.ColResult[index].GetLastCard();
 
                         if (lastCard != null)
                         {
@@ -746,25 +587,25 @@ namespace CrazyFord
                     lastCard = null;
 
                     //additional columns
-                    for (int index = 0; index < _colAdditional.Length; index++)
+                    for (int index = 0; index < _gameColumns.ColAdditional.Length; index++)
                     {
                         //set allowDrop = false for every card in column
-                        _colAdditional[index].SetAllowDrop();
+                        _gameColumns.ColAdditional[index].SetAllowDrop();
                         //set allowDrop = false for image in this column
                         _gameImages.AdditionalColImages[index].AllowDrop = false;
                         //get last card
-                        lastCard = _colAdditional[index].GetLastCard();
+                        lastCard = _gameColumns.ColAdditional[index].GetLastCard();
 
                         if (lastCard != null)
                         {
-                            if (card.Data.CardName == _colAdditional[index].CardName)
+                            if (card.Data.CardName == _gameColumns.ColAdditional[index].CardName)
                             {
                                 lastCard.AllowDrop = true;
                             }
                         }
                         else
                         {
-                            if (card.Data.CardName == _colAdditional[index].CardName)
+                            if (card.Data.CardName == _gameColumns.ColAdditional[index].CardName)
                             {
                                 _gameImages.AdditionalColImages[index].AllowDrop = true;
                             }
@@ -834,7 +675,7 @@ namespace CrazyFord
                         {
                             for (int index = _cardsMove.Count - 1; index >= 0; index--)
                             {
-                                _colGame[(int)iColGame].DeleteCard(_cardsMove[index]);
+                                _gameColumns.ColGame[(int)iColGame].DeleteCard(_cardsMove[index]);
                             }
                         }
                         else
@@ -844,20 +685,20 @@ namespace CrazyFord
                         break;
 
                     case CardPlace.AdditionalColumn:
-                        if (_colAdditional[GameWindowConstants.iColKing].Contains(card))
+                        if (_gameColumns.ColAdditional[GameWindowConstants.iColKing].Contains(card))
                         {
-                            _colAdditional[GameWindowConstants.iColKing].DeleteCard(card);
+                            _gameColumns.ColAdditional[GameWindowConstants.iColKing].DeleteCard(card);
                         }
                         else
                         {
-                            _colAdditional[GameWindowConstants.iColJoker].DeleteCard(card);
+                            _gameColumns.ColAdditional[GameWindowConstants.iColJoker].DeleteCard(card);
                         }
                         break;
 
                     case CardPlace.Deck:
-                        if (_colDeck.Contains(card))
+                        if (_gameColumns.ColDeck.Contains(card))
                         {
-                            _colDeck.DeleteCard(card);
+                            _gameColumns.ColDeck.DeleteCard(card);
                         }
                         else
                         {
@@ -879,7 +720,7 @@ namespace CrazyFord
                         iCurrCol = GetResColIndex(iCol);
                         //delete card from last place
                         DeleteCardsPromLastPlace();
-                        _colResult[iCurrCol].AddCard(card);
+                        _gameColumns.ColResult[iCurrCol].AddCard(card);
                         card.Margin = new Thickness(0, 0, 0, 0);
                         CheckOnWin();
                         break;
@@ -890,12 +731,12 @@ namespace CrazyFord
                         DeleteCardsPromLastPlace();
                         for (int index = _cardsMove.Count - 1; index >= 0; index--)
                         {
-                            _colGame[iCurrCol].AddCard(_cardsMove[index]);
+                            _gameColumns.ColGame[iCurrCol].AddCard(_cardsMove[index]);
 
-                            int countBackCards = _colGame[iCurrCol].GetCountBackCards();
+                            int countBackCards = _gameColumns.ColGame[iCurrCol].GetCountBackCards();
 
                             Double cardDistance = countBackCards * _cardGameBackDistance +
-                                                  (_colGame[iCurrCol].GetCardIndex(_cardsMove[index]) -
+                                                  (_gameColumns.ColGame[iCurrCol].GetCardIndex(_cardsMove[index]) -
                                                    countBackCards) * _cardGameFaceDistance;
 
                             _cardsMove[index].Margin = new Thickness(0, cardDistance, 0, 0);
@@ -911,11 +752,11 @@ namespace CrazyFord
 
                         if (iCol == _gameWindowData.iGridColKing)
                         {
-                            _colAdditional[GameWindowConstants.iColKing].AddCard(card);
+                            _gameColumns.ColAdditional[GameWindowConstants.iColKing].AddCard(card);
                         }
                         else
                         {
-                            _colAdditional[GameWindowConstants.iColJoker].AddCard(card);
+                            _gameColumns.ColAdditional[GameWindowConstants.iColJoker].AddCard(card);
                         }
                         card.Margin = new Thickness(0, 0, 0, 0);
                         CheckOnWin();
@@ -936,9 +777,9 @@ namespace CrazyFord
                         int? iColGame = GetGameColIndex(card);
                         if (iColGame != null)
                         {
-                            for (int index = _colGame[(int) iColGame].Count - 1; index >= 0; index --)
+                            for (int index = _gameColumns.ColGame[(int)iColGame].Count - 1; index >= 0; index--)
                             {
-                                Card lastCard = _colGame[(int)iColGame][index];
+                                Card lastCard = _gameColumns.ColGame[(int)iColGame][index];
                                 _cardsMove.Add(lastCard);
 
                                 if (lastCard.Equals(card))

@@ -18,16 +18,6 @@ namespace CrazyFord.GameProcess
 
         #endregion
 
-        #region Public properties
-
-        public Card[] Cards { get; set; }
-        public Image[] ResultColImages { get; set; }
-        public Image[] GameColImages { get; set; }
-        public Image[] AdditionalColImages { get; set; }
-        public Image DeckColImage { get; set; }
-
-        #endregion
-
         #region Init
 
         public GameImages()
@@ -143,6 +133,16 @@ namespace CrazyFord.GameProcess
 
             Card.ImageSourceCardBack = Helper.GetImageSourceFromResource("Resources/CardBack/2.png");
         }
+
+        #endregion
+
+        #region Public properties
+
+        public Card[] Cards { get; set; }
+        public Image[] ResultColImages { get; set; }
+        public Image[] GameColImages { get; set; }
+        public Image[] AdditionalColImages { get; set; }
+        public Image DeckColImage { get; set; }
 
         #endregion
 
