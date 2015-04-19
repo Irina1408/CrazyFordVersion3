@@ -146,6 +146,43 @@ namespace CrazyFord.GameProcess
 
         #endregion
 
+        #region Public methods
+
+        public void SetImageSize(double width, double height)
+        {
+            for (int index = 0; index < GameColImages.Length; index++)
+            {
+                GameColImages[index].Width = width;
+                GameColImages[index].Height = height;
+            }
+
+            for (int index = 0; index < ResultColImages.Length; index++)
+            {
+                ResultColImages[index].Width = width;
+                ResultColImages[index].Height = height;
+            }
+
+            for (int index = 0; index < AdditionalColImages.Length; index++)
+            {
+                AdditionalColImages[index].Width = width;
+                AdditionalColImages[index].Height = height;
+            }
+
+            DeckColImage.Width = width;
+            DeckColImage.Height = height;
+
+            for (int index = 0; index < Cards.Length; index++)
+            {
+                if (Cards[index] != null)
+                {
+                    Cards[index].Width = width;
+                    Cards[index].Height = height;
+                }
+            }
+        }
+
+        #endregion
+
         #region Private methods
 
         /// <summary>

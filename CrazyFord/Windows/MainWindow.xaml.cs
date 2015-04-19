@@ -32,22 +32,6 @@ namespace CrazyFord
 
         #region Other fields
 
-            private double _cardWidth;
-            private double _cardHeight;
-
-            private double _cardGameFaceDistance;
-            private double _cardGameBackDistance;
-            private double _cardDeckDistance;
-
-            private int[] _cardSequence = new int[AdditionalData.CountCards];
-            private int _curCardIndex;
-
-            //private int _iGridColDeck;
-            //private int _iGridColKing;
-            //private int _iGridColJoker;
-
-            private bool _isGame = false;
-
             private Button btnMenu = new Button();
             private Effect effect = new DropShadowEffect();
             private Label lblCountCardDeck = new Label();
@@ -95,7 +79,7 @@ namespace CrazyFord
                 {
                     timer.Stop();
 
-                    MenuWindow menuWindow = new MenuWindow(_isGame);
+                    MenuWindow menuWindow = new MenuWindow(_gameWindowData.IsGame);
                     menuWindow.ShowDialog();
 
                     timer.Start();
@@ -191,10 +175,11 @@ namespace CrazyFord
         private void NewGame()
         {
             //reset game data
-            _curCardIndex = 0;
+            _gameWindowData.CurCardIndex = 0;
 
             //surffe card sequence
-            Helper.Shuffle(ref _cardSequence);
+            _gameWindowData.CardSequence = Helper.Shuffle(_gameWindowData.CardSequence);
+
             for (int index = 0; index < AdditionalData.CountCards; index++)
             {
                 _gameImages.Cards[index].Visibility = Visibility.Hidden;
@@ -227,7 +212,7 @@ namespace CrazyFord
             {
                 for (int index = 0; index < iCol + 1; index++)
                 {
-                    int iCard = _cardSequence[_curCardIndex];
+                    int iCard = _gameWindowData.CardSequence[_gameWindowData.CurCardIndex];
                     _gameColumns.ColGame[iCol].AddCard(_gameImages.Cards[iCard]);
 
                     _gameImages.Cards[iCard].Visibility = Visibility.Visible;
@@ -235,7 +220,7 @@ namespace CrazyFord
                     Grid.SetRow(_gameImages.Cards[iCard], GameWindowConstants.iRowGameColsGrid);
                     Grid.SetColumn(_gameImages.Cards[iCard], GetGameGridColIndex(iCol));
 
-                    _gameImages.Cards[iCard].Margin = new Thickness(0, _gameColumns.ColGame[iCol].GetCardIndex(_gameImages.Cards[iCard]) * _cardGameBackDistance, 0, 0);
+                    _gameImages.Cards[iCard].Margin = new Thickness(0, _gameColumns.ColGame[iCol].GetCardIndex(_gameImages.Cards[iCard]) * _gameWindowData.CardGameBackDistance, 0, 0);
 
                     //replace card
                     if (index == iCol)
@@ -247,12 +232,12 @@ namespace CrazyFord
                         _gameImages.Cards[iCard].ShowCardBack();
                     }
 
-                    _curCardIndex++;
+                    _gameWindowData.CurCardIndex++;
                 }
             }
 
-            lblCountCardDeck.Content = AdditionalData.CountCards - _curCardIndex + " / 0";
-            _isGame = true;
+            lblCountCardDeck.Content = AdditionalData.CountCards - _gameWindowData.CurCardIndex + " / 0";
+            _gameWindowData.IsGame = true;
             //clear actions history
             history.Clear();
 
@@ -273,10 +258,11 @@ namespace CrazyFord
                 }
                 else
                 {
-                    column[index].Margin = new Thickness((index - difference) * _cardDeckDistance, 0, -(index - difference) * _cardDeckDistance, 0);
+                    column[index].Margin = new Thickness((index - difference) * _gameWindowData.CardDeckDistance, 
+                        0, -(index - difference) * _gameWindowData.CardDeckDistance, 0);
                 }
             }
-            lblCountCardDeck.Content = AdditionalData.CountCards - _curCardIndex + " / " + _gameColumns.ColDeck.Count;
+            lblCountCardDeck.Content = AdditionalData.CountCards - _gameWindowData.CurCardIndex + " / " + _gameColumns.ColDeck.Count;
         }
 
         private void CheckOnWin()
@@ -313,56 +299,28 @@ namespace CrazyFord
                         card.Visibility = Visibility.Hidden;
                     }
 
-                    _isGame = false;
+                    _gameWindowData.IsGame = false;
                 }
             }
         }
 
         private void WindowSizeChanged()
         {
-            if (_cardHeight / _cardWidth > 1.4)
+            if (_gameWindowData.CardHeight / _gameWindowData.CardWidth > 1.4)
             {
-                _cardHeight = _cardWidth * 1.4;
+                _gameWindowData.CardHeight = _gameWindowData.CardWidth * 1.4;
             }
             else
             {
-                _cardWidth = _cardHeight / 1.4;
+                _gameWindowData.CardWidth = _gameWindowData.CardHeight / 1.4;
             }
 
-            for (int index = 0; index < _gameImages.GameColImages.Length; index++)
-            {
-                _gameImages.GameColImages[index].Width = _cardWidth;
-                _gameImages.GameColImages[index].Height = _cardHeight;
-            }
-
-            for (int index = 0; index < _gameImages.ResultColImages.Length; index++)
-            {
-                _gameImages.ResultColImages[index].Width = _cardWidth;
-                _gameImages.ResultColImages[index].Height = _cardHeight;
-            }
-
-            for (int index = 0; index < _gameImages.AdditionalColImages.Length; index++)
-            {
-                _gameImages.AdditionalColImages[index].Width = _cardWidth;
-                _gameImages.AdditionalColImages[index].Height = _cardHeight;
-            }
-
-            _gameImages.DeckColImage.Width = _cardWidth;
-            _gameImages.DeckColImage.Height = _cardHeight;
-
-            for (int index = 0; index < _gameImages.Cards.Length; index++)
-            {
-                if (_gameImages.Cards[index] != null)
-                {
-                    _gameImages.Cards[index].Width = _cardWidth;
-                    _gameImages.Cards[index].Height = _cardHeight;
-                }
-            }
+            _gameImages.SetImageSize(_gameWindowData.CardWidth, _gameWindowData.CardHeight);
 
             //change distance
-            _cardGameFaceDistance = _cardHeight / 5;
-            _cardDeckDistance = _cardWidth / 4;
-            _cardGameBackDistance = _cardGameFaceDistance / 2;
+            _gameWindowData.CardGameFaceDistance = _gameWindowData.CardHeight / 5;
+            _gameWindowData.CardDeckDistance = _gameWindowData.CardWidth / 4;
+            _gameWindowData.CardGameBackDistance = _gameWindowData.CardGameFaceDistance / 2;
 
             bool lastShowedFace = false;
             double cardDistance = 0;
@@ -376,11 +334,11 @@ namespace CrazyFord
                     {
                         if (!lastShowedFace)
                         {
-                            cardDistance += _cardGameBackDistance;
+                            cardDistance += _gameWindowData.CardGameBackDistance;
                         }
                         else
                         {
-                            cardDistance += _cardGameFaceDistance;
+                            cardDistance += _gameWindowData.CardGameFaceDistance;
                         }
                     }
 
@@ -394,7 +352,7 @@ namespace CrazyFord
             }
 
             AlignDeckSequence(_gameColumns.ColDeck);
-            lblCountCardDeck.FontSize = _cardGameBackDistance * 1.5;
+            lblCountCardDeck.FontSize = _gameWindowData.CardGameBackDistance * 1.5;
         }
 
         private void timerTick(object sender, EventArgs e)
@@ -459,7 +417,7 @@ namespace CrazyFord
             private bool _isDeckMouseDown = false;
             private void Deck_MouseDown(object sender, MouseButtonEventArgs e)
             {
-                if (_isGame)
+                if (_gameWindowData.IsGame)
                 _isDeckMouseDown = true;
             }
 
@@ -469,20 +427,20 @@ namespace CrazyFord
                 {
                     _isDeckMouseDown = false;
 
-                    int iCard = _cardSequence[_curCardIndex];
+                    int iCard = _gameWindowData.CardSequence[_gameWindowData.CurCardIndex];
 
                     //add in deck
                     _gameColumns.ColDeck.AddCard(_gameImages.Cards[iCard]);
-                    _curCardIndex++;
+                    _gameWindowData.CurCardIndex++;
 
                     //set card is visible
                     //_cards[iCard].Margin = new Thickness(_colDeck.GetCardIndex(_cards[iCard]) * _cardDeckDistance, 0, -_colDeck.GetCardIndex(_cards[iCard]) * _cardDeckDistance, 0);
                     //set card row and column
                     Grid.SetColumn(_gameImages.Cards[iCard], _gameWindowData.iGridColDeck + 2);
                     Grid.SetRow(_gameImages.Cards[iCard], GameWindowConstants.iRowAdditionalColsGrid);
-                    lblCountCardDeck.Content = AdditionalData.CountCards - _curCardIndex + " / " + _gameColumns.ColDeck.Count;
+                    lblCountCardDeck.Content = AdditionalData.CountCards - _gameWindowData.CurCardIndex + " / " + _gameColumns.ColDeck.Count;
 
-                    if (_curCardIndex >= _cardSequence.Length)
+                    if (_gameWindowData.CurCardIndex >= _gameWindowData.CardSequence.Length)
                     {
                         _gameImages.DeckColImage.Visibility = Visibility.Hidden;
                     }
@@ -631,16 +589,6 @@ namespace CrazyFord
                 }
             }
 
-            private void card_MouseMove(object sender, MouseEventArgs e)
-            {
-                Image card = (Image)sender;
-
-                if (e.LeftButton == MouseButtonState.Pressed)
-                {
-                    
-                }
-            }
-
             private void card_Drop(object sender, DragEventArgs e)
             {
                 Image tempImage = sender as Image;
@@ -735,9 +683,9 @@ namespace CrazyFord
 
                             int countBackCards = _gameColumns.ColGame[iCurrCol].GetCountBackCards();
 
-                            Double cardDistance = countBackCards * _cardGameBackDistance +
+                            Double cardDistance = countBackCards * _gameWindowData.CardGameBackDistance +
                                                   (_gameColumns.ColGame[iCurrCol].GetCardIndex(_cardsMove[index]) -
-                                                   countBackCards) * _cardGameFaceDistance;
+                                                   countBackCards) * _gameWindowData.CardGameFaceDistance;
 
                             _cardsMove[index].Margin = new Thickness(0, cardDistance, 0, 0);
                             //set card row and column
@@ -817,8 +765,8 @@ namespace CrazyFord
         {
             if (this.WindowState == System.Windows.WindowState.Normal)
             {
-                _cardHeight = this.Height / 6.1;
-                _cardWidth = this.Width / 13;
+                _gameWindowData.CardHeight = this.Height / 6.1;
+                _gameWindowData.CardWidth = this.Width / 13;
                 WindowSizeChanged();
             }
         }
@@ -833,18 +781,18 @@ namespace CrazyFord
             switch (this.WindowState)
             {
                 case WindowState.Maximized:
-                    _cardHeight = MaxHeight / 6.1;
-                    _cardWidth = MaxWidth / 13;
+                    _gameWindowData.CardHeight = MaxHeight / 6.1;
+                    _gameWindowData.CardWidth = MaxWidth / 13;
                     break;
 
                 case WindowState.Minimized:
-                    _cardHeight = this.MinHeight / 6.1;
-                    _cardWidth = this.MinWidth / 13;
+                    _gameWindowData.CardHeight = this.MinHeight / 6.1;
+                    _gameWindowData.CardWidth = this.MinWidth / 13;
                     break;
 
                 case WindowState.Normal:
-                    _cardHeight = this.Height / 6.1;
-                    _cardWidth = this.Width / 13;
+                    _gameWindowData.CardHeight = this.Height / 6.1;
+                    _gameWindowData.CardWidth = this.Width / 13;
                     break;
             }
 

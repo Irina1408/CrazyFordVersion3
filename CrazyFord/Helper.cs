@@ -99,10 +99,11 @@ namespace CrazyFord
             return GetImageSourceFromResource("Resources/CardFace/" + dataCard.CardLear + "/" + numCardName + ".png", assemblyName);
         }
 
-        public static void Shuffle(ref int[] mas)
+        public static int[] Shuffle(int[] mas)
         {
             bool[] assigned = new bool[mas.Length];
             Random sourceGen = new Random();
+
             for (int i = 0; i < mas.Length; i++)
             {
                 int sourceCard = 0;
@@ -118,6 +119,8 @@ namespace CrazyFord
                 assigned[sourceCard] = true;
                 mas[i] = sourceCard;
             }
+
+            return mas;
         }
 
     }
