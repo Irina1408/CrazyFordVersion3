@@ -33,7 +33,6 @@ namespace CrazyFord
         #region Other fields
 
             private Button btnMenu = new Button();
-            private Effect effect = new DropShadowEffect();
             private Label lblCountCardDeck = new Label();
             private System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
             private DateTime gameTime;
@@ -111,29 +110,7 @@ namespace CrazyFord
                 lblCountCardDeck.HorizontalContentAlignment = HorizontalAlignment.Center;
 
                 //events
-                for (int index = 0; index < _gameImages.Cards.Length; index++)
-                {
-                    _gameImages.Cards[index].MouseDown += card_MouseDown;
-                    _gameImages.Cards[index].Drop += card_Drop;
-                }
-
-                for (int index = 0; index < _gameImages.ResultColImages.Length; index++)
-                {
-                    _gameImages.ResultColImages[index].Drop += card_Drop;
-                }
-
-                for (int index = 0; index < _gameImages.GameColImages.Length; index++)
-                {
-                    _gameImages.GameColImages[index].Drop += card_Drop;
-                }
-
-                for (int index = 0; index < _gameImages.AdditionalColImages.Length; index++)
-                {
-                    _gameImages.AdditionalColImages[index].Drop += card_Drop;
-                }
-
-                _gameImages.DeckColImage.MouseDown += Deck_MouseDown;
-                _gameImages.DeckColImage.MouseUp += Deck_MouseUp;
+                _gameImages.SetEvents(card_MouseDown, card_Drop, Deck_MouseUp);
 
                 this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
                 this.MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
@@ -414,18 +391,11 @@ namespace CrazyFord
 
         #region Deck click
 
-            private bool _isDeckMouseDown = false;
-            private void Deck_MouseDown(object sender, MouseButtonEventArgs e)
-            {
-                if (_gameWindowData.IsGame)
-                _isDeckMouseDown = true;
-            }
-
             private void Deck_MouseUp(object sender, MouseButtonEventArgs e)
             {
-                if (_isDeckMouseDown)
+                if (_gameWindowData.IsDeckMouseDown)
                 {
-                    _isDeckMouseDown = false;
+                    _gameWindowData.IsDeckMouseDown = false;
 
                     int iCard = _gameWindowData.CardSequence[_gameWindowData.CurCardIndex];
 
@@ -451,7 +421,6 @@ namespace CrazyFord
 
         #region Card moving
 
-            //private Card _cardMove;
             private List <Card> _cardsMove = new List<Card>();
 
             /// <summary>
@@ -749,7 +718,9 @@ namespace CrazyFord
 
                 System.Windows.Controls.Border border = new Border();
                 border.Background = Brushes.AntiqueWhite;
-                border.BorderThickness = new Thickness(2,2,2,2);             
+                border.BorderThickness = new Thickness(2,2,2,2);
+
+                Effect effect = new DropShadowEffect();
 
                 foreach (Card movingCard in _cardsMove)
                 {

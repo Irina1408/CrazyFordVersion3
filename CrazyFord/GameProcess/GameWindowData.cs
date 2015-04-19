@@ -15,6 +15,7 @@ namespace CrazyFord.GameProcess
         {
             CardSequence = new int[AdditionalData.CountCards];
             IsGame = false;
+            IsDeckMouseDown = false;
         }
 
         #endregion
@@ -32,6 +33,7 @@ namespace CrazyFord.GameProcess
         public int[] CardSequence { get; set; }
         public int CurCardIndex { get; set; }
         public bool IsGame { get; set; }
+        public bool IsDeckMouseDown { get; set; }
 
         #endregion
     }

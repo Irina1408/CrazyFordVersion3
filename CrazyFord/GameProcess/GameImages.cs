@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using CrazyFord.Data;
 
 namespace CrazyFord.GameProcess
@@ -179,6 +180,39 @@ namespace CrazyFord.GameProcess
                     Cards[index].Height = height;
                 }
             }
+        }
+
+        public void SetEvents(MouseButtonEventHandler mouseDown, DragEventHandler drop,
+            MouseButtonEventHandler deckMouseUp)
+        {
+            for (int index = 0; index < Cards.Length; index++)
+            {
+                Cards[index].MouseDown += mouseDown;
+                Cards[index].Drop += drop;
+            }
+
+            for (int index = 0; index < ResultColImages.Length; index++)
+            {
+                ResultColImages[index].Drop += drop;
+            }
+
+            for (int index = 0; index < GameColImages.Length; index++)
+            {
+                GameColImages[index].Drop += drop;
+            }
+
+            for (int index = 0; index < AdditionalColImages.Length; index++)
+            {
+                AdditionalColImages[index].Drop += drop;
+            }
+
+            DeckColImage.MouseDown += (object sender, MouseButtonEventArgs e) =>
+            {
+                if (_gameWindowData.IsGame)
+                    _gameWindowData.IsDeckMouseDown = true;
+            };
+
+            DeckColImage.MouseUp += deckMouseUp;
         }
 
         #endregion
