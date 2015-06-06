@@ -9,13 +9,13 @@ namespace CrazyFord.Data.Clumns
 {
     public class ColumnGame : ColumnBase
     {
-    #region Private fields
+        #region Private fields
 
         private int _colIndex;
 
-    #endregion
+        #endregion
 
-    #region Initialize
+        #region Initialize
 
         public ColumnGame(int colNumber) 
             :base()
@@ -24,9 +24,9 @@ namespace CrazyFord.Data.Clumns
             this.MaxCount = AdditionalData.CountCardNames + colNumber;
         }
 
-    #endregion
+        #endregion
 
-    #region Overrides
+        #region Overrides
 
         public override void AddCard(Card card)
         {
@@ -50,9 +50,9 @@ namespace CrazyFord.Data.Clumns
             }
         }
 
-    #endregion
+        #endregion
 
-    #region Public methods
+        #region Public methods
 
         public Name GetCardMovingNameInColumn(Card card, int numJoker = 0)
         {
@@ -129,9 +129,9 @@ namespace CrazyFord.Data.Clumns
             return 0;
         }
 
-    #endregion
+        #endregion
 
-    #region Private methods
+        #region Private methods
 
         private Color GetCardColorDown(Card card, int numJoker = 0)
         {
@@ -173,6 +173,6 @@ namespace CrazyFord.Data.Clumns
             return this.Cards.FirstOrDefault(card => card.IsShowedFace);
         }
 
-    #endregion
+        #endregion
     }
 }

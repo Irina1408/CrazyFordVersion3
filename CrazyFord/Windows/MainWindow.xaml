@@ -3,13 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Сумасшедший форд" Width="759.2" Height="471.2" MinWidth="800" MinHeight="500" 
         FontSize="16" WindowStartupLocation="CenterScreen" Style="{DynamicResource GenericWindowStyle}"
-        Closing="Window_Closing"
         StateChanged="Window_StateChanged"
         SizeChanged="Window_SizeChanged">
     <DockPanel>
         <ToolBarPanel DockPanel.Dock ="Bottom" VerticalAlignment="Bottom" Height="17" Background="Transparent">
             <Label x:Name="lblTimer" Margin="0,-7,0,0" 
-                   Content="0:00:00" ToolBar.OverflowMode="Never" 
+                   Content="{Binding GameTime, Mode=OneWay}" ToolBar.OverflowMode="Never" 
                    VerticalAlignment="Top" HorizontalAlignment="Right" 
                    HorizontalContentAlignment="Center" VerticalContentAlignment="Top"></Label>
         </ToolBarPanel>

@@ -46,8 +46,10 @@ namespace CrazyFord.GameProcess
         {
             for (int index = 0; index < ResultColImages.Length; index++)
             {
-                ResultColImages[index] = new Image();
-                ResultColImages[index].Source = Helper.GetImageSourceFromResource("Resources/Ace.png");
+                ResultColImages[index] = new Image
+                {
+                    Source = Helper.GetImageSourceFromResource("Resources/Ace.png")
+                };
 
                 Helper.TuneCardImage(ResultColImages[index]);
                 _grid.Children.Add(ResultColImages[index]);

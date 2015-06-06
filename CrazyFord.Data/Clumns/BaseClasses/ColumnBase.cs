@@ -9,14 +9,14 @@ namespace CrazyFord.Data.Clumns.BaseClasses
 {
     public class ColumnBase
     {
-    #region Protected fields
+        #region Protected fields
 
         protected List<Card> Cards = new List<Card>();
         protected int MaxCount;
 
-    #endregion
+        #endregion
 
-    #region Public fields
+        #region Public fields
 
         public delegate void ChangeColumnDelegate(ColumnBase columnBase);
 
@@ -24,9 +24,9 @@ namespace CrazyFord.Data.Clumns.BaseClasses
 
         public event ChangeColumnDelegate AfterDeleteCardEvent;
 
-    #endregion
+        #endregion
 
-    #region Public properties
+        #region Public properties
 
         public int Count
         {
@@ -68,18 +68,18 @@ namespace CrazyFord.Data.Clumns.BaseClasses
             }
         }
 
-    #endregion
+        #endregion
 
-    #region Initialize
+        #region Initialize
 
         public ColumnBase() 
         {
 
         }
 
-    #endregion
+        #endregion
 
-    #region Public functions
+        #region Public functions
 
         public virtual void AddCard(Card card)
         {
@@ -142,6 +142,6 @@ namespace CrazyFord.Data.Clumns.BaseClasses
             return Cards.IndexOf(card);
         }
 
-    #endregion
+        #endregion
     }
 }

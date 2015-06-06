@@ -65,6 +65,25 @@ namespace CrazyFord.GameProcess
 
         #endregion
 
+        #region Public methods
+
+        /// <summary>
+        /// Returns game column index where card is plased
+        /// </summary>
+        public int? GetGameColIndex(Card card)
+        {
+            for (int index = 0; index < ColGame.Length; index++)
+            {
+                if (ColGame[index].Contains(card))
+                {
+                    return index;
+                }
+            }
+            return null;
+        }
+
+        #endregion
+        
         #region Private methods
 
         private void AlignOnZindex(ColumnBase column)

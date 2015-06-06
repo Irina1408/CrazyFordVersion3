@@ -30,7 +30,9 @@ namespace CrazyFord
             }
 
             Uri oUri = new Uri("pack://application:,,,/" + assemblyName + ";component/" + resourceName, UriKind.RelativeOrAbsolute);
-            return BitmapFrame.Create(oUri);
+            ImageSource tempIS = BitmapFrame.Create(oUri);
+            oUri = null;
+            return tempIS;
         }
 
         /// <summary>
@@ -39,20 +41,20 @@ namespace CrazyFord
         /// <param name="pathInApplication">Path image in application</param>
         /// <param name="assembly">Assemply has this image</param>
         /// <returns>Bitmap image/Image source</returns>
-        public static BitmapImage LoadBitmapFromResource(string pathInApplication, Assembly assembly = null)
-        {
-            if (assembly == null)
-            {
-                assembly = Assembly.GetCallingAssembly();
-            }
+        //public static BitmapImage LoadBitmapFromResource(string pathInApplication, Assembly assembly = null)
+        //{
+        //    if (assembly == null)
+        //    {
+        //        assembly = Assembly.GetCallingAssembly();
+        //    }
 
-            if (pathInApplication[0] == '/')
-            {
-                pathInApplication = pathInApplication.Substring(1);
-            }
+        //    if (pathInApplication[0] == '/')
+        //    {
+        //        pathInApplication = pathInApplication.Substring(1);
+        //    }
 
-            return new BitmapImage(new Uri(@"pack://application:,,,/" + assembly.GetName().Name + ";component/" + pathInApplication, UriKind.Absolute));
-        }
+        //    return new BitmapImage(new Uri(@"pack://application:,,,/" + assembly.GetName().Name + ";component/" + pathInApplication, UriKind.Absolute));
+        //}
 
         /// <summary>
         /// Set image (not checked)
