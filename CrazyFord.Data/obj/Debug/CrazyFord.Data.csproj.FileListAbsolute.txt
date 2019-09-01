@@ -1,0 +1,15 @@
+D:\my folder\CrazyFord\CrazyFord\CrazyFord.Data\bin\Debug\CrazyFord.Data.dll
+D:\my folder\CrazyFord\CrazyFord\CrazyFord.Data\bin\Debug\CrazyFord.Data.pdb
+D:\my folder\CrazyFord\CrazyFord\CrazyFord.Data\obj\Debug\CrazyFord.Data.dll
+D:\my folder\CrazyFord\CrazyFord\CrazyFord.Data\obj\Debug\CrazyFord.Data.pdb
+D:\my folder\CrazyFord\CrazyFord\CrazyFord.Data\obj\Debug\CrazyFord.Data.csprojResolveAssemblyReference.cache
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord.Data\bin\Debug\CrazyFord.Data.dll
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord.Data\bin\Debug\CrazyFord.Data.pdb
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord.Data\obj\Debug\CrazyFord.Data.dll
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord.Data\obj\Debug\CrazyFord.Data.pdb
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord.Data\obj\Debug\CrazyFord.Data.csprojResolveAssemblyReference.cache
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord.Data\bin\Debug\CrazyFord.Data.dll
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord.Data\bin\Debug\CrazyFord.Data.pdb
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord.Data\obj\Debug\CrazyFord.Data.dll
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord.Data\obj\Debug\CrazyFord.Data.pdb
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord.Data\obj\Debug\CrazyFord.Data.csprojResolveAssemblyReference.cache

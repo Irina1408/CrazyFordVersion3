@@ -1,0 +1,65 @@
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\bin\Debug\CrazyFord.exe.config
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\bin\Debug\CrazyFord.exe
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\bin\Debug\CrazyFord.pdb
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Debug\CrazyFord.csprojResolveAssemblyReference.cache
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Debug\App.g.cs
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Debug\CrazyFord_MarkupCompile.cache
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Debug\CrazyFord.g.resources
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Debug\CrazyFord.Properties.Resources.resources
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Debug\CrazyFord.csproj.GenerateResource.Cache
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Debug\CrazyFord.exe
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Debug\CrazyFord.pdb
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\bin\Debug\CrazyFord.Data.dll
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\bin\Debug\CrazyFord.Data.pdb
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Debug\Windows\MainWindow.baml
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Debug\Windows\MenuWindow.baml
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Debug\Windows\MainWindow.g.cs
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Debug\Windows\MenuWindow.g.cs
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Debug\CrazyFord.g.resources
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Debug\CrazyFord.csprojResolveAssemblyReference.cache
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Debug\Windows\MainWindow.baml
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Debug\Windows\MenuWindow.baml
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Debug\Windows\MainWindow.g.cs
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Debug\Windows\MenuWindow.g.cs
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Debug\App.g.cs
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Debug\CrazyFord_MarkupCompile.cache
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\bin\Debug\CrazyFord.exe.config
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\bin\Debug\CrazyFord.exe
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\bin\Debug\CrazyFord.pdb
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\bin\Debug\CrazyFord.Data.dll
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\bin\Debug\CrazyFord.Data.pdb
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Debug\CrazyFord.Properties.Resources.resources
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Debug\CrazyFord.csproj.GenerateResource.Cache
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Debug\CrazyFord.exe
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Debug\CrazyFord.pdb
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\bin\Debug\CrazyFord.CommonControls.dll
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\bin\Debug\CrazyFord.CommonControls.pdb
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Debug\App.baml
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\CrazyFord.g.resources
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\CrazyFord.csprojResolveAssemblyReference.cache
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\Windows\MainWindow.baml
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\Windows\MenuWindow.baml
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\App.baml
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\Windows\MainWindow.g.cs
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\Windows\MenuWindow.g.cs
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\App.g.cs
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\CrazyFord_MarkupCompile.cache
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Debug\CrazyFord.exe.config
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Debug\CrazyFord.exe
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Debug\CrazyFord.pdb
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Debug\AppStyle.dll
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Debug\CrazyFord.Data.dll
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Debug\CrazyFord.Logic.dll
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Debug\AppStyle.pdb
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Debug\CrazyFord.Data.pdb
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Debug\CrazyFord.Logic.pdb
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\CrazyFord.Properties.Resources.resources
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\CrazyFord.csproj.GenerateResource.Cache
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\CrazyFord.exe
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\CrazyFord.pdb
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\CrazyFord_MarkupCompile.lref
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\Windows\SettingsWindow.baml
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Debug\Windows\SettingsWindow.g.cs
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Debug\CrazyFord.Utils.dll
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Debug\CrazyFord.Utils.pdb

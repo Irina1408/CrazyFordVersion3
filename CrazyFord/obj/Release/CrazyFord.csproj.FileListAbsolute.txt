@@ -1,0 +1,96 @@
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\bin\Release\CrazyFord.exe.config
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\bin\Release\CrazyFord.exe
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\bin\Release\CrazyFord.pdb
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\bin\Release\CrazyFord.Data.dll
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\bin\Release\CrazyFord.Data.pdb
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Release\CrazyFord.csprojResolveAssemblyReference.cache
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Release\MainWindow.baml
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Release\MenuWindow.baml
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Release\MainWindow.g.cs
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Release\MenuWindow.g.cs
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Release\App.g.cs
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Release\CrazyFord_MarkupCompile.cache
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Release\CrazyFord.g.resources
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Release\CrazyFord.Properties.Resources.resources
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Release\CrazyFord.csproj.GenerateResource.Cache
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Release\CrazyFord.exe
+D:\my folder\CrazyFord\CrazyFord\CrazyFord\obj\Release\CrazyFord.pdb
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\bin\Release\CrazyFord.exe.config
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Release\CrazyFord.exe
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Release\CrazyFord.pdb
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\bin\Release\CrazyFord.exe
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\bin\Release\CrazyFord.pdb
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\bin\Release\CrazyFord.Data.dll
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\bin\Release\CrazyFord.Data.pdb
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Release\CrazyFord.csprojResolveAssemblyReference.cache
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Release\Windows\MainWindow.baml
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Release\Windows\MenuWindow.baml
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Release\Windows\MainWindow.g.cs
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Release\Windows\MenuWindow.g.cs
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Release\App.g.cs
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Release\CrazyFord_MarkupCompile.cache
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Release\CrazyFord.g.resources
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Release\CrazyFord.Properties.Resources.resources
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Release\CrazyFord.csproj.GenerateResource.Cache
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\bin\Release\CrazyFord.CommonControls.dll
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\bin\Release\CrazyFord.CommonControls.pdb
+D:\my folder\my programms\CrazyFord\CrazyFord\CrazyFord\obj\Release\App.baml
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.exe.config
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord.exe
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord.pdb
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.exe
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.pdb
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\AppStyle.dll
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.Data.dll
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.Logic.dll
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\AppStyle.pdb
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.Data.pdb
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.Logic.pdb
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord.csprojResolveAssemblyReference.cache
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\Windows\MenuWindow.baml
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\Windows\MainWindow.g.cs
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\Windows\MenuWindow.g.cs
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\App.g.cs
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord_MarkupCompile.cache
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord_MarkupCompile.lref
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\App.baml
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\Windows\MainWindow.baml
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord.g.resources
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord.Properties.Resources.resources
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord.csproj.GenerateResource.Cache
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.Utils.dll
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.Utils.pdb
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\Windows\SettingsWindow.baml
+D:\My folder\My programms\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\Windows\SettingsWindow.g.cs
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.exe.config
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord.exe
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord.pdb
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.exe
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.pdb
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\AppStyle.dll
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.Data.dll
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.Logic.dll
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.Utils.dll
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\AppStyle.pdb
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\AppStyle.dll.config
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.Data.pdb
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.Logic.pdb
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\bin\Release\CrazyFord.Utils.pdb
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord.csprojAssemblyReference.cache
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\Windows\MenuWindow.baml
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\Windows\SettingsWindow.baml
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\Windows\MainWindow.g.cs
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\Windows\MenuWindow.g.cs
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\Windows\SettingsWindow.g.cs
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\App.g.cs
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord_MarkupCompile.cache
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord_MarkupCompile.lref
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\App.baml
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\Windows\MainWindow.baml
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord.g.resources
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord.Properties.Resources.resources
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord.csproj.GenerateResource.cache
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord.csproj.CoreCompileInputs.cache
+D:\My folder\My programms\CrazyFord\CrazyFord Version 3\CrazyFord\CrazyFord\obj\Release\CrazyFord.csproj.CopyComplete
