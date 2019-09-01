@@ -164,7 +164,7 @@
     <Resource Include="Resources\CardBack\2.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\AppHelper\AppStyle\AppStyle.csproj">
+    <ProjectReference Include="..\AppStyle\AppStyle.csproj">
       <Project>{82748959-acbe-4a85-b588-ba57deccca7b}</Project>
       <Name>AppStyle</Name>
     </ProjectReference>

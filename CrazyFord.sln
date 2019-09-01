@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrazyFord", "CrazyFord\CrazyFord.csproj", "{BCDADAFF-96FD-45B4-AA4E-4C481B7D5B63}"
 EndProject
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrazyFord.Logic", "CrazyFor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrazyFord.Utils", "CrazyFord.Utils\CrazyFord.Utils.csproj", "{B50668C2-2FF7-4D9D-8B4C-8CF6ED2DE4AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppStyle", "..\..\..\AppHelper\AppStyle\AppStyle.csproj", "{82748959-ACBE-4A85-B588-BA57DECCCA7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppStyle", "AppStyle\AppStyle.csproj", "{82748959-ACBE-4A85-B588-BA57DECCCA7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,5 +42,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {387491FF-EBF0-45EE-84B8-CCB70CDFBA0B}
 	EndGlobalSection
 EndGlobal
