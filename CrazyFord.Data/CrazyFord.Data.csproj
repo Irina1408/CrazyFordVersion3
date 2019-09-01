@@ -45,15 +45,16 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdditionalData.cs" />
-    <Compile Include="Card.cs" />
-    <Compile Include="Clumns\AdditionalColumn.cs" />
-    <Compile Include="Clumns\BaseClasses\ColumnBase.cs" />
-    <Compile Include="Clumns\BaseClasses\IColumn.cs" />
-    <Compile Include="Clumns\ColumnDeck.cs" />
-    <Compile Include="Clumns\ColumnGame.cs" />
-    <Compile Include="Clumns\ColumnResult.cs" />
-    <Compile Include="DataCard.cs" />
+    <Compile Include="StaticGameData.cs" />
+    <Compile Include="Cards\Card.cs" />
+    <Compile Include="Cards\ICard.cs" />
+    <Compile Include="Columns\AdditionalColumn.cs" />
+    <Compile Include="Columns\BaseClasses\ColumnBase.cs" />
+    <Compile Include="Columns\BaseClasses\IColumn.cs" />
+    <Compile Include="Columns\ColumnDeck.cs" />
+    <Compile Include="Columns\ColumnGame.cs" />
+    <Compile Include="Columns\ColumnResult.cs" />
+    <Compile Include="Cards\DataCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

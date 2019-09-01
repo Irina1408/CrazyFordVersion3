@@ -1,0 +1,22 @@
+﻿<c:AppWindow x:Class="CrazyFord.Windows.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Style="{DynamicResource AppWindowGeneralStyle}"
+        xmlns:c="clr-namespace:AppStyle.Controls;assembly=AppStyle"
+        Title="Настройки" Height="428" Width="556.8">
+
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TabControl x:Name="MainControl" Grid.Row="0" TabStripPlacement="Left"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Ок" Click="buttonOk_OnClick"/>
+            <Button Content="Отмена" Click="buttonCancel_OnClick"/>
+        </StackPanel>
+    </Grid>
+
+</c:AppWindow>

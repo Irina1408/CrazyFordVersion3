@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,72 +12,75 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using CrazyFord.Data;
 using System.Reflection;
+using AppStyle.Controls;
+using CrazyFord.Logic;
 
-namespace CrazyFord
+namespace CrazyFord.Windows
 {
-    public enum MenuAction
+    public enum MenuResult
     {
-        None,
         NewGame,
-        Exit
+        ResumeGame,
+        ExitGame
     }
+
     /// <summary>
     /// Interaction logic for MenuWindow.xaml
     /// </summary>
-    public partial class MenuWindow : Window
+    public partial class MenuWindow : AppWindow
     {
-        private bool escPressed = false;
-        public MenuAction AfterMenuHideAction { get; private set; }
+        private bool _escPressed;
 
         public MenuWindow(bool isGame = false)
         {
             InitializeComponent();
 
-            //set colors
-            //btnNewGame.Background = Helper.GetButtonBackBrush();
-            //btnResumeGame.Background = Helper.GetButtonBackBrush();
-            //btnRules.Background = Helper.GetButtonBackBrush();
-            //btnExit.Background = Helper.GetButtonBackBrush();
             btnResumeGame.IsEnabled = isGame;
+            Result = MenuResult.ResumeGame;
         }
+
+        public MenuResult Result { get; private set; }
 
         private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
-            AfterMenuHideAction = MenuAction.NewGame;
-            btnResumeGame.IsEnabled = true;
+            Result = MenuResult.NewGame;
             this.Hide();
         }
 
         private void btnResumeGame_Click(object sender, RoutedEventArgs e)
         {
-            //AfterMenuHideAction = MenuAction.None;
             this.Hide();
+        }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            var settingsWindow = new SettingsWindow();
+            settingsWindow.LoadSettingsTab(Settings.Instance, "Основные");
+            settingsWindow.ShowDialog();
         }
 
         private void btnRules_Click(object sender, RoutedEventArgs e)
         {
-            //AfterMenuHideAction = MenuAction.None;
-            MessageBox.Show(AdditionalData.Rules);
+            MessageBox.Show(Data.StaticGameData.Rules);
+        }
+        
+        private void btnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("             Автор: Ирина                        \n             Версия: " + Assembly.GetEntryAssembly().GetName().Version);
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
-            AfterMenuHideAction = MenuAction.Exit;
-            this.Close();
-        }
-
-        private void Window_Activated(object sender, EventArgs e)
-        {
-            AfterMenuHideAction = MenuAction.None;
+            Result = MenuResult.ExitGame;
+            this.Hide();
         }
 
         private void Window_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Escape && escPressed)
+            if (e.Key == Key.Escape && _escPressed)
             {
-                escPressed = false;
+                _escPressed = false;
                 this.Hide();
             }
         }
@@ -85,18 +89,8 @@ namespace CrazyFord
         {
             if (e.Key == Key.Escape)
             {
-                escPressed = true;
+                _escPressed = true;
             }
-        }
-
-        private void Label_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed) DragMove();
-        }
-
-        private void btnAbout_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("             Автор: Ирина                        \n             Версия: " + Assembly.GetCallingAssembly().GetName().Version);
         }
 
     }

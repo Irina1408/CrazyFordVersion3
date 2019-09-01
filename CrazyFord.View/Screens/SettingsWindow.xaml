@@ -1,0 +1,11 @@
+﻿<c:AppWindow x:Class="CrazyFord.Windows.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:c="clr-namespace:AppStyle.Controls;assembly=AppStyle"
+        Title="SettingsWindow" Height="300" Width="300">
+    
+    <Grid x:Name="MainGrid">
+        
+    </Grid>
+    
+</c:AppWindow>

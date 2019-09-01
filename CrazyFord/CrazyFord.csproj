@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,28 +55,36 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewHelper.cs" />
+    <Compile Include="Windows\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="GameProcess\GameColumns.cs" />
-    <Compile Include="GameProcess\GameData.cs" />
-    <Compile Include="GameProcess\GameImages.cs" />
-    <Compile Include="GameProcess\GameProcess.cs" />
-    <Compile Include="GameProcess\GameWindowConstants.cs" />
-    <Compile Include="GameProcess\GameWindowData.cs" />
-    <Compile Include="History\Action.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper.cs" />
-    <Compile Include="History\History.cs" />
+    <Compile Include="WindowHelp\WindowData\CardImage.cs" />
+    <Compile Include="WindowHelp\ImageViewer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WindowHelp\GameWindowConstants.cs" />
+    <Compile Include="WindowHelp\GameWindowData.cs" />
+    <Compile Include="WindowHelp\WindowLogic\CustomGame.cs" />
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\MenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -155,13 +164,21 @@
     <Resource Include="Resources\CardBack\2.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CrazyFord.CommonControls\CrazyFord.CommonControls.csproj">
-      <Project>{59791492-c7f5-4408-8e27-feeae444ec53}</Project>
-      <Name>CrazyFord.CommonControls</Name>
+    <ProjectReference Include="..\..\..\..\AppHelper\AppStyle\AppStyle.csproj">
+      <Project>{82748959-acbe-4a85-b588-ba57deccca7b}</Project>
+      <Name>AppStyle</Name>
     </ProjectReference>
     <ProjectReference Include="..\CrazyFord.Data\CrazyFord.Data.csproj">
       <Project>{de23180f-cb39-4fc6-94a5-1926a297cdd1}</Project>
       <Name>CrazyFord.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CrazyFord.Logic\CrazyFord.Logic.csproj">
+      <Project>{1a310336-8538-4842-b92d-a1625ee2c7a7}</Project>
+      <Name>CrazyFord.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CrazyFord.Utils\CrazyFord.Utils.csproj">
+      <Project>{b50668c2-2ff7-4d9d-8b4c-8cf6ed2de4ac}</Project>
+      <Name>CrazyFord.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -214,6 +231,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\menu1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="card_icon1.jpg" />
+    <Resource Include="card_icon2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
